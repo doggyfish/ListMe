@@ -11,7 +11,7 @@ namespace ListMe.Controllers {
 	[Authorize]
 	[ValidateHttpAntiForgeryToken]
 	public class TodoController : ApiController {
-		private TodoItemContext db = new TodoItemContext();
+		private ListMeContext db = new ListMeContext();
 
 		// PUT api/Todo/5
 		public HttpResponseMessage PutTodoItem(int id, TodoItemDto todoItemDto) {

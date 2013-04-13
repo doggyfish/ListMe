@@ -20,10 +20,10 @@ namespace ListMe.Filters {
 
 		private class SimpleMembershipInitializer {
 			public SimpleMembershipInitializer() {
-				Database.SetInitializer<UsersContext>(null);
+				Database.SetInitializer<ListMeContext>(null);
 
 				try {
-					using (var context = new UsersContext()) {
+					using (var context = new ListMeContext()) {
 						if (!context.Database.Exists()) {
 							// Create the SimpleMembership database without Entity Framework migration schema
 							((IObjectContextAdapter)context).ObjectContext.CreateDatabase();

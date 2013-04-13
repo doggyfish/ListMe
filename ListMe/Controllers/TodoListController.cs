@@ -12,7 +12,7 @@ using ListMe.Models;
 namespace ListMe.Controllers {
 	[Authorize]
 	public class TodoListController : ApiController {
-		private TodoItemContext db = new TodoItemContext();
+		private ListMeContext db = new ListMeContext();
 
 		// GET api/TodoList
 		public IEnumerable<TodoListDto> GetTodoLists() {

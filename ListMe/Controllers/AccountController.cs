@@ -74,7 +74,7 @@ namespace ListMe.Controllers {
 		/// </summary>
 		/// <param name="userName"></param>
 		private static void InitiateDatabaseForNewUser(string userName) {
-			TodoItemContext db = new TodoItemContext();
+			ListMeContext db = new ListMeContext();
 			TodoList todoList = new TodoList();
 			todoList.UserId = userName;
 			todoList.Title = "My Todo List #1";
@@ -226,7 +226,7 @@ namespace ListMe.Controllers {
 
 			if (ModelState.IsValid) {
 				// Insert a new user into the database
-				using (UsersContext db = new UsersContext()) {
+				using (ListMeContext db = new ListMeContext()) {
 					UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
 					// Check if user already exists
 					if (user == null) {
