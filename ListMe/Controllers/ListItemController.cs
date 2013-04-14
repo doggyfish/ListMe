@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using ListMe.Filters;
 using ListMe.Models;
+using WebMatrix.WebData;
 
 namespace ListMe.Controllers
 {
@@ -21,7 +22,7 @@ namespace ListMe.Controllers
 		public IEnumerable<ListItem> GetListItems()
 		{
 			return db.ListItems
-			         .Where(u => u.UserName == User.Identity.Name)
+			         .Where(u => u.UserId == WebSecurity.CurrentUserId)
 			         .OrderByDescending(u => u.ListItemId)
 			         .AsEnumerable();
 		}
@@ -36,7 +37,7 @@ namespace ListMe.Controllers
 				return Request.CreateResponse(HttpStatusCode.BadRequest);
 			}
 
-			if (listItem.UserName != User.Identity.Name) {
+			if (listItem.UserId != WebSecurity.CurrentUserId) {
 				// Trying to modify a record that does not belong to the user
 				return Request.CreateResponse(HttpStatusCode.Unauthorized);
 			}
@@ -64,7 +65,7 @@ namespace ListMe.Controllers
 				return Request.CreateResponse(HttpStatusCode.NotFound);
 			}
 
-			if (listItem.UserName != User.Identity.Name) {
+			if (listItem.UserId != WebSecurity.CurrentUserId) {
 				// Trying to add a record that does not belong to the user
 				return Request.CreateResponse(HttpStatusCode.Unauthorized);
 			}
@@ -85,7 +86,7 @@ namespace ListMe.Controllers
 				return Request.CreateResponse(HttpStatusCode.NotFound);
 			}
 
-			if (listItem.UserName != User.Identity.Name) {
+			if (listItem.UserId != WebSecurity.CurrentUserId) {
 				// Trying to delete a record that does not belong to the user
 				return Request.CreateResponse(HttpStatusCode.Unauthorized);
 			}

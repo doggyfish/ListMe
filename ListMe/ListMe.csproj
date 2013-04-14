@@ -211,9 +211,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201304130140340_Initial.cs" />
-    <Compile Include="Migrations\201304130140340_Initial.Designer.cs">
-      <DependentUpon>201304130140340_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201304141221135_initial.cs" />
+    <Compile Include="Migrations\201304141221135_initial.Designer.cs">
+      <DependentUpon>201304141221135_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -358,11 +358,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Home\_Register.cshtml" />
-    <Content Include="Views\Default1\Index.cshtml" />
-    <Content Include="Views\Default1\Details.cshtml" />
-    <Content Include="Views\Default1\Create.cshtml" />
-    <Content Include="Views\Default1\Edit.cshtml" />
-    <Content Include="Views\Default1\Delete.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
@@ -377,8 +372,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201304130140340_Initial.resx">
-      <DependentUpon>201304130140340_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201304141221135_initial.resx">
+      <DependentUpon>201304141221135_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

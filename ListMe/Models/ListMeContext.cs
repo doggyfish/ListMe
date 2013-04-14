@@ -18,7 +18,7 @@ namespace ListMe.Models {
 			: base("DefaultConnection") {
 		}
 
-		//public DbSet<UserProfile> UserProfiles { get; set; }
+		public DbSet<UserProfile> UserProfiles { get; set; }
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<ListItem> ListItems { get; set; }
 		public DbSet<ItemDetail> ItemDetails { get; set; }
@@ -29,6 +29,5 @@ namespace ListMe.Models {
 		public DbSet<TodoItem> TodoItems { get; set; }
 		public DbSet<TodoList> TodoLists { get; set; }
 
-		public DbSet<UserProfile> UserProfiles { get; set; }
 	}
 }

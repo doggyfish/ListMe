@@ -14,6 +14,8 @@ namespace ListMe.Models {
 		[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
 		public int UserId { get; set; }
 		public string UserName { get; set; }
+
+		//public virtual List<ListItem> ListItems { get; set; } 
 	}
 
 	public class RegisterExternalLoginModel {

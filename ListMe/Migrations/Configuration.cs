@@ -11,7 +11,7 @@ namespace ListMe.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(ListMe.Models.ListMeContext context)
@@ -35,31 +35,30 @@ namespace ListMe.Migrations
 				  Description = "Description 1",
 				  Icon = "/Images/icon1.png",
 				  CategoryId = 1,
-				  UserName = "Test1"
+				  UserId = 1
 			  },
 			  new ListItem {
 				  Title = "List Item 2",
 				  Description = "Description 2",
 				  Icon = "/Images/icon2.png",
 				  CategoryId = 1,
-				  UserName = "Test1"
+				  UserId = 1
 			  },
 			  new ListItem {
 				  Title = "List Item 3",
 				  Description = "Description 3",
 				  Icon = "/Images/icon3.png",
 				  CategoryId = 2,
-				  UserName = "Test2"
+				  UserId = 2
 			  },
 			  new ListItem {
 				  Title = "List Item 4",
 				  Description = "Description 4",
 				  Icon = "/Images/icon4.png",
 				  CategoryId = 3,
-				  UserName = "Test1"
+				  UserId = 1
 			  }
 			);
-			
         }
     }
 }

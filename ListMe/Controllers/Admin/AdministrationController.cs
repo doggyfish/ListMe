@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using ListMe.Models;
 using ListMe.ViewModels;
+using WebMatrix.WebData;
 
 namespace ListMe.Controllers.Admin
 {
@@ -18,7 +19,7 @@ namespace ListMe.Controllers.Admin
 		public ActionResult Index()
         {
 	        return View(db.Categories.Include("ListItems")
-	                      .Where(c => c.ListItems.Any(item => item.UserName == User.Identity.Name))
+						  .Where(c => c.ListItems.Any(item => item.UserId == WebSecurity.CurrentUserId))
 	                      .OrderByDescending(u => u.CategoryId)
 	                      .AsEnumerable()
 	                      .Select(category => new AdministrationVM(category)));

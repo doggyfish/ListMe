@@ -3,10 +3,19 @@ namespace ListMe.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.UserProfile",
+                c => new
+                    {
+                        UserId = c.Int(nullable: false, identity: true),
+                        UserName = c.String(),
+                    })
+                .PrimaryKey(t => t.UserId);
+            
             CreateTable(
                 "dbo.Categories",
                 c => new
@@ -21,11 +30,13 @@ namespace ListMe.Migrations
                 c => new
                     {
                         ListItemId = c.Int(nullable: false, identity: true),
-                        UserName = c.String(nullable: false),
                         Title = c.String(nullable: false),
                         Icon = c.String(),
                         Description = c.String(),
+                        IsDeleted = c.Boolean(nullable: false),
+                        IsEnabled = c.Boolean(nullable: false),
                         CategoryId = c.Int(nullable: false),
+                        UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ListItemId)
                 .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
@@ -98,15 +109,6 @@ namespace ListMe.Migrations
                     })
                 .PrimaryKey(t => t.TodoListId);
             
-            CreateTable(
-                "dbo.UserProfile",
-                c => new
-                    {
-                        UserId = c.Int(nullable: false, identity: true),
-                        UserName = c.String(),
-                    })
-                .PrimaryKey(t => t.UserId);
-            
         }
         
         public override void Down()
@@ -127,7 +129,6 @@ namespace ListMe.Migrations
             DropForeignKey("dbo.ItemComments", "ListItem_ListItemId", "dbo.ListItems");
             DropForeignKey("dbo.ItemComments", "ListItemId", "dbo.ListItems");
             DropForeignKey("dbo.ListItems", "CategoryId", "dbo.Categories");
-            DropTable("dbo.UserProfile");
             DropTable("dbo.TodoLists");
             DropTable("dbo.TodoItems");
             DropTable("dbo.ItemImages");
@@ -135,6 +136,7 @@ namespace ListMe.Migrations
             DropTable("dbo.ItemComments");
             DropTable("dbo.ListItems");
             DropTable("dbo.Categories");
+            DropTable("dbo.UserProfile");
         }
     }
 }
