@@ -16,6 +16,7 @@ namespace ListMe.Models {
 		public string UserName { get; set; }
 
 		//public virtual List<ListItem> ListItems { get; set; } 
+		public virtual List<WatchedItem> WatchedItems { get; set; } 
 	}
 
 	public class RegisterExternalLoginModel {

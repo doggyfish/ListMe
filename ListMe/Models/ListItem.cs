@@ -24,6 +24,7 @@ namespace ListMe.Models {
 		public virtual List<ItemComment> ItemDetails { get; set; }
 		public virtual List<ItemComment> ItemImages { get; set; }
 		public virtual List<ItemComment> ItemComments { get; set; }
+		//public virtual List<WatchedItem> WatchedItems { get; set; } 
 
 		[ForeignKey("Category")]
 		public int CategoryId { get; set; }
