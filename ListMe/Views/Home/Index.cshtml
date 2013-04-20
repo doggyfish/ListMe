@@ -67,6 +67,9 @@ else
         @Html.Partial("_Register")
         <p>Already signed up? <a id="showLogin">Log in</a></p>
     </div>
+    <div>
+        @*@Html.Partial("_List")*@
+    </div>
 }
 </div>
 
@@ -76,5 +79,13 @@ else
         @Scripts.Render("~/bundles/knockout")
         @Scripts.Render("~/bundles/jqueryval")
         @Scripts.Render("~/bundles/todo")
+        @*@Scripts.Render("~/bundles/itemList")*@
     }
 }
+
+@section scripts {
+        @Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/todo")
+        @*@Scripts.Render("~/bundles/itemList")*@
+    }

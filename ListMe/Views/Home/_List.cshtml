@@ -1,0 +1,10 @@
+﻿<div data-bind="with: window.todoApp.itemListViewModel">
+    <p>My List</p>
+    <table data-bind="foreach: items">
+        <tbody>
+            <tr>
+                <td data-bind="text: name"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
