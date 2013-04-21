@@ -68,24 +68,18 @@ else
         <p>Already signed up? <a id="showLogin">Log in</a></p>
     </div>
     <div>
-        @*@Html.Partial("_List")*@
+        @Html.Partial("_List")
     </div>
 }
 </div>
 
 @if (@User.Identity.IsAuthenticated)
 {
-    @section scripts {
-        @Scripts.Render("~/bundles/knockout")
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/bundles/todo")
-        @*@Scripts.Render("~/bundles/itemList")*@
-    }
 }
 
 @section scripts {
-        @Scripts.Render("~/bundles/knockout")
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/bundles/todo")
-        @*@Scripts.Render("~/bundles/itemList")*@
-    }
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/todo")
+    @Scripts.Render("~/bundles/itemList")
+}

@@ -12,7 +12,6 @@ using WebMatrix.WebData;
 
 namespace ListMe.Controllers
 {
-	[Authorize]
 	[ValidateHttpAntiForgeryToken]
     public class ListItemController : ApiController
     {
@@ -28,6 +27,7 @@ namespace ListMe.Controllers
 		}
 
 		// PUT api/ListItem/5
+		[Authorize]
 		public HttpResponseMessage PutListItem(int id, ListItem listItem) {
 			if (!ModelState.IsValid) {
 				return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
@@ -55,6 +55,7 @@ namespace ListMe.Controllers
 		}
 
 		// POST api/ListItem
+		[Authorize]
 		public HttpResponseMessage PostListItem(ListItem listItem) {
 			if (!ModelState.IsValid) {
 				return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
@@ -80,6 +81,7 @@ namespace ListMe.Controllers
 		}
 
 		// DELETE api/ListItem/5
+		[Authorize]
 		public HttpResponseMessage DeleteTodoItem(int id) {
 			ListItem listItem = db.ListItems.Find(id);
 			if (listItem == null) {
