@@ -19,10 +19,11 @@ namespace ListMe.Controllers
 		// GET api/ListItem
 		public IEnumerable<ListItem> GetListItems()
 		{
-			return db.ListItems
-			         .Where(u => u.UserId == WebSecurity.CurrentUserId)
+			var items = db.ListItems
+			         //.Where(u => u.UserId == WebSecurity.CurrentUserId)
 			         .OrderByDescending(u => u.ListItemId)
 			         .AsEnumerable();
+			return items;
 		}
 
 		// PUT api/ListItem/5
