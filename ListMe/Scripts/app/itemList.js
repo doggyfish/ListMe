@@ -9,7 +9,7 @@ window.todoApp.itemListViewModel = (function (ko) {
             .fail(getFailed);
 
         function getSucceeded(data) {
-            var mappedTodoLists = $.map(data, function (list) { return new { name: list.name } });
+            var mappedTodoLists = $.map(data, function (list) { return { name: list.title, desc: list.description } });
             items(mappedTodoLists);
         }
 
