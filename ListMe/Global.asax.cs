@@ -21,10 +21,7 @@ namespace ListMe {
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 			AuthConfig.RegisterAuth();
-			if (!WebSecurity.Initialized)
-			{
-				WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
-			}
+			GlobalConfiguration.Configuration.Filters.Add(new System.Web.Http.AuthorizeAttribute());
 
 			GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 		}

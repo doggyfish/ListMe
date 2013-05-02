@@ -49,6 +49,7 @@
         </article>
     </section>*@
     
+    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
     <div>
         @Html.Partial("_List")
     </div>

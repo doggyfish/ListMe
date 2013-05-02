@@ -12,6 +12,7 @@ using ListMe.Models;
 
 namespace ListMe.Controllers {
 	[Authorize]
+	[InitializeSimpleMembership]
 	public class AccountController : Controller {
 		//
 		// POST: /Account/JsonLogin
