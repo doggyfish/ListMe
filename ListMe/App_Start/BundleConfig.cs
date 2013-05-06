@@ -18,6 +18,9 @@ namespace ListMe {
 			bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
 						"~/Scripts/knockout-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                        "~/Scripts/bootstrap.js"));
+
 			bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
 				"~/Scripts/app/ajaxlogin.js"));
 
@@ -38,7 +41,9 @@ namespace ListMe {
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 				"~/Content/Site.css",
-				"~/Content/TodoList.css"));
+				"~/Content/TodoList.css",
+                "~/Content/bootstrap.css",
+                "~/Content/bootstrap-responsive.css"));
 
 			bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
 						"~/Content/themes/base/jquery.ui.core.css",
