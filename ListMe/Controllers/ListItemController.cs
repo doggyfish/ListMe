@@ -12,7 +12,7 @@ using WebMatrix.WebData;
 
 namespace ListMe.Controllers
 {
-	[ValidateHttpAntiForgeryToken]
+	 //[ValidateHttpAntiForgeryToken]
     public class ListItemController : ApiController
     {
 		private ListMeContext db = new ListMeContext();

@@ -63,10 +63,6 @@ namespace ListMe.Models {
 		public string UserName { get; set; }
 
 		[Required]
-		[Display(Name = "Contact Number")]
-		public string ContactNumber { get; set; }
-
-		[Required]
 		[DataType(DataType.Password)]
 		[Display(Name = "Password")]
 		public string Password { get; set; }

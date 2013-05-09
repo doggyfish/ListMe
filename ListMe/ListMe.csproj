@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201304150755097_UserToItemnav.Designer.cs">
       <DependentUpon>201304150755097_UserToItemnav.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305091041477_EnhanceModel.cs" />
+    <Compile Include="Migrations\201305091041477_EnhanceModel.Designer.cs">
+      <DependentUpon>201305091041477_EnhanceModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -401,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201304150755097_UserToItemnav.resx">
       <DependentUpon>201304150755097_UserToItemnav.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305091041477_EnhanceModel.resx">
+      <DependentUpon>201305091041477_EnhanceModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
