@@ -13,10 +13,22 @@ namespace ListMe.Models {
 		[Key]
 		[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
 		public int UserId { get; set; }
+		/// <summary>
+		/// User name
+		/// </summary>
 		public string UserName { get; set; }
+		/// <summary>
+		/// User Contact Number
+		/// </summary>
+		public string ContactNumber { get; set; }
+		/// <summary>
+		/// User prefered region, e.g. nz or chch.
+		/// </summary>
+		public ListMe.Helper.GlobalEnum.Region Region { get; set; }
 
-		//public virtual List<ListItem> ListItems { get; set; } 
-		public virtual List<WatchedItem> WatchedItems { get; set; } 
+		public virtual List<ListItem> ListItems { get; set; }
+		public virtual List<WatchedItem> WatchedItems { get; set; }
+		public virtual List<UserAddress> UserAddresses { get; set; } 
 	}
 
 	public class RegisterExternalLoginModel {
@@ -49,6 +61,10 @@ namespace ListMe.Models {
 		[Required]
 		[Display(Name = "User name")]
 		public string UserName { get; set; }
+
+		[Required]
+		[Display(Name = "Contact Number")]
+		public string ContactNumber { get; set; }
 
 		[Required]
 		[DataType(DataType.Password)]

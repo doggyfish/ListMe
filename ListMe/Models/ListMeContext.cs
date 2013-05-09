@@ -25,6 +25,7 @@ namespace ListMe.Models {
 		public DbSet<ItemComment> ItemComments { get; set; }
 		public DbSet<ItemImage> ItemImages { get; set; }
 		public DbSet<WatchedItem> WatchedItems { get; set; }
+		public DbSet<UserAddress> UserAddresses { get; set; }
 
 		//example
 		public DbSet<TodoItem> TodoItems { get; set; }

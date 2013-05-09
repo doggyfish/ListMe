@@ -32,6 +32,6 @@ namespace ListMe.Models {
 
 		[Required]
 		public int UserId { get; set; }
-		//public virtual UserProfile UserProfile { get; set; }
+		public virtual UserProfile UserProfile { get; set; }
 	}
 }

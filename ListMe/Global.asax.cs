@@ -23,7 +23,8 @@ namespace ListMe {
 			AuthConfig.RegisterAuth();
 			GlobalConfiguration.Configuration.Filters.Add(new System.Web.Http.AuthorizeAttribute());
 
-			GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+			//modified WebApiConfig class Register method instead
+			//GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 		}
 	}
 }

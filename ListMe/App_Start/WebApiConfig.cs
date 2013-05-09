@@ -24,6 +24,9 @@ namespace ListMe {
 
 			// Use camel case for JSON data.
 			config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+			var configuration = GlobalConfiguration.Configuration;
+			configuration.Formatters.Remove(configuration.Formatters.XmlFormatter);
 		}
 	}
 }

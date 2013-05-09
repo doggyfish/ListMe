@@ -10,26 +10,76 @@ using System.Web;
 using System.Web.Http;
 using ListMe.Filters;
 using ListMe.Models;
+using ListMe.Helper;
 
 namespace ListMe.Controllers
 {
 	[ValidateHttpAntiForgeryToken]
-    public class SearchController : ApiController
-    {
-        private ListMeContext db = new ListMeContext();
+	public class SearchController : ApiController
+	{
+		private ListMeContext db = new ListMeContext();
 
-        // GET api/Search
-        public IEnumerable<ListItem> GetListItems(string category = "", string keyword = "")
-        {
-	        bool hasCategory = false;
-			var listitems = db.ListItems.Include(l => l.Category).Where(i => i.Category.Title == category && i.Title.Contains(keyword) && i.Description.Contains(keyword));
-            return listitems.AsEnumerable();
-        }
+		// GET api/Search?r=&c=&k=
+		public IEnumerable<ListItem> GetListItems(GlobalEnum.Region region = GlobalEnum.Region.NewZealand, string category = "", string keyword = "")
+		{
+			IEnumerable<ListItem> listitems = null;
 
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
-    }
+			if (region != GlobalEnum.Region.NewZealand && !String.IsNullOrEmpty(category) && !String.IsNullOrEmpty(keyword)) {
+				listitems = db.ListItems
+					.Include(l => l.Category)
+					.Include(l => l.UserProfile)
+					.Where(l => l.UserProfile.Region == region && l.Category.Title == category && l.Title.Contains(keyword) && l.Description.Contains(keyword))
+					.AsEnumerable();
+			} else if (region != GlobalEnum.Region.NewZealand && String.IsNullOrEmpty(category)) {
+				listitems = db.ListItems
+					.Include(l => l.Category)
+					.Include(l => l.UserProfile)
+					.Where(l => l.UserProfile.Region == region && l.Category.Title == category)
+					.AsEnumerable();
+			} else if (region != GlobalEnum.Region.NewZealand && String.IsNullOrEmpty(keyword)) {
+				listitems = db.ListItems
+					.Include(l => l.Category)
+					.Include(l => l.UserProfile)
+					.Where(l => l.UserProfile.Region == region && l.Title.Contains(keyword) && l.Description.Contains(keyword))
+					.AsEnumerable();
+			} else if (String.IsNullOrEmpty(category) && String.IsNullOrEmpty(keyword)) {
+				listitems = db.ListItems
+					.Include(l => l.Category)
+					.Include(l => l.UserProfile)
+					.Where(l => l.Category.Title == category && l.Title.Contains(keyword) && l.Description.Contains(keyword))
+					.AsEnumerable();
+			} else if (String.IsNullOrEmpty(category)) {
+				listitems = db.ListItems
+					.Include(l => l.Category)
+					.Include(l => l.UserProfile)
+					.Where(l => l.Category.Title == category)
+					.AsEnumerable();
+			} else if (String.IsNullOrEmpty(keyword)) {
+				listitems = db.ListItems
+					.Include(l => l.Category)
+					.Include(l => l.UserProfile)
+					.Where(l => l.Title.Contains(keyword) && l.Description.Contains(keyword))
+					.AsEnumerable();
+			} else if (region != GlobalEnum.Region.NewZealand) {
+				listitems = db.ListItems
+					.Include(l => l.Category)
+					.Include(l => l.UserProfile)
+					.Where(l => l.UserProfile.Region == region)
+					.AsEnumerable();
+			} else {
+				listitems = db.ListItems
+					.Include(l => l.Category)
+					.Include(l => l.UserProfile)
+					.AsEnumerable();
+			}
+		   
+			return listitems;
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			db.Dispose();
+			base.Dispose(disposing);
+		}
+	}
 }
